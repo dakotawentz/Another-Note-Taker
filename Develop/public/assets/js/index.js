@@ -1,4 +1,3 @@
-let noteForm;
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -6,7 +5,6 @@ let newNoteBtn;
 let noteList;
 
 if (window.location.pathname === '/notes') {
-  noteForm = document.querySelector('.note-form');
   noteTitle = document.querySelector('.note-title');
   noteText = document.querySelector('.note-textarea');
   saveNoteBtn = document.querySelector('.save-note');
@@ -55,7 +53,6 @@ const deleteNote = (id) =>
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
-  hide(clearBtn);
 
   if (activeNote.id) {
     show(newNoteBtn);
@@ -149,7 +146,7 @@ const renderNoteList = async (notes) => {
     liEl.append(spanEl);
 
     if (delBtn) {
-      const delBtnEl = document.createElement('i');
+      const delBtnEl = document.createElement('li');
       delBtnEl.classList.add(
         'fas',
         'fa-trash-alt',
