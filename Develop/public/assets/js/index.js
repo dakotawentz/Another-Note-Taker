@@ -54,7 +54,6 @@ const deleteNote = (id) =>
   });
 
 const renderActiveNote = () => {
-  console.log(renderActiveNote);
   hide(saveNoteBtn);
   hide(clearBtn);
 
@@ -146,8 +145,6 @@ const renderNoteList = async (notes) => {
     spanEl.classList.add('list-item-title');
     spanEl.innerText = text;
     spanEl.addEventListener('click', handleNoteView);
-    console.log(handleNewNoteView);
-
 
     liEl.append(spanEl);
 
@@ -161,7 +158,6 @@ const renderNoteList = async (notes) => {
         'delete-note'
       );
       delBtnEl.addEventListener('click', handleNoteDelete);
-      console.log(handleNoteDelete);
 
       liEl.append(delBtnEl);
     }
@@ -190,13 +186,9 @@ const getAndRenderNotes = () => getNotes().then(renderNoteList);
 
 if (window.location.pathname === '/notes') {
   saveNoteBtn.addEventListener('click', handleNoteSave);
-  console.log(handleNoteSave);
   newNoteBtn.addEventListener('click', handleNewNoteView);
   clearBtn.addEventListener('click', renderActiveNote);
-  console.log(renderActiveNote);
   noteForm.addEventListener('input', handleRenderBtns);
-  console.log(handleRenderBtns);
 }
 
 getAndRenderNotes();
-

@@ -22,16 +22,14 @@ let id = db.length +1;
 });
 
 router.get('/notes', function (req, res) {
-  fs.readFile("db/db.json", (err, data) => {
-    if (err) {
-      console.error(err)
-     } else {
+  fs.readFile("db/db.json", "utf-8", (err, data) => {
+    console.log(data);
       const parsedNotes = JSON.parse(data);
      
-  console.log(parsedNotes);
-    res.json(parsedNotes);
-  }}
-)});
+    res.json(JSON.parse(data));
+    
+  // }}
+  })});
   
 
 //DELETE NOTES FUNCTION
