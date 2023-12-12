@@ -73,11 +73,13 @@ const renderActiveNote = () => {
 };
 
 const handleNoteSave = () => {
+  console.log('Saving note...');
   const newNote = {
     title: noteTitle.value,
     text: noteText.value
   };
   saveNote(newNote).then(() => {
+    console.log('Note saved successfully');
     getAndRenderNotes();
     renderActiveNote();
   });
@@ -117,12 +119,17 @@ const handleNewNoteView = (e) => {
 
 // Renders the appropriate buttons based on the state of the form
 const handleRenderBtns = () => {
+  console.log('Title:', noteTitle.value.trim());
+  console.log('Text:', noteText.value.trim());
+
   show(clearBtn);
   if (!noteTitle.value.trim() && !noteText.value.trim()) {
     hide(clearBtn);
   } else if (!noteTitle.value.trim() || !noteText.value.trim()) {
+    console.log('Hiding Save Button');
     hide(saveNoteBtn);
   } else {
+    console.log('Showing Save Button');
     show(saveNoteBtn);
   }
 };
