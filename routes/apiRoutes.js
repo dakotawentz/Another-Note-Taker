@@ -1,6 +1,5 @@
 const db = require("../db/db.json");
 const fs = require("fs")
-// const uuid = require("uuid");
 const router = require("express").Router();
 const express = require("express");
 
@@ -13,13 +12,13 @@ router.post("/notes", (req, res) => {
 console.log(req.body);
 
 db.push(req.body);
-// this request is coming from server.js so only need ./ local
-fs.writeFile("./db/db.json", JSON.stringify(db), function (err) {
+fs.writeFile("db/db.json", JSON.stringify(db), function (err) {
   if (err) throw err;
-  // pushed into db but need to show on screen
+
   res.json(db);
   })
 });
+
 
 router.get('/notes', function (req, res) {
   fs.readFile("db/db.json", "utf-8", (err, data) => {

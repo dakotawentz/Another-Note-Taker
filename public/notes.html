@@ -17,7 +17,7 @@
 
   <body>
     <nav class="navbar bg-info">
-      <a class="navbar-brand" href="/">Note Taker </a>
+      <a class="navbar-brand text-light p-3" href="/">Note Taker </a>
       <div class="icons">
         <button type="button" class="btn btn-outline-light btn-sm save-note">
           <span class="fas fa-save"></span>
@@ -35,12 +35,13 @@
     </nav>
     <div class="container-fluid">
       <div class="row">
-        <div class="col-4 list-container">
+        <div class="col-4 list-container" id="list-container">
           <div class="card">
-            <ul class="list-group"></ul>
+            <ul class="list-group" id="list-group"></ul>
           </div>
         </div>
         <div class="col-8">
+          <form class="note-form">
             <input
             class="note-title"
             placeholder="Note Title"
@@ -48,9 +49,10 @@
             type="text"
             />
             <textarea class="note-textarea" placeholder="Note Text"></textarea>
+          </form>
         </div>
       </div>
     </div>
-    <script src="./assets/js/index.js"></script>
+    <script src="/assets/js/index.js"></script>
   </body>
 </html>
